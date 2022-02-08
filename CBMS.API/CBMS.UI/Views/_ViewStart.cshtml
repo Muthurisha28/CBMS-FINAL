@@ -1,0 +1,23 @@
+﻿@{
+        Layout = "_Layout";
+    }
+    @*@@*using System;
+    using System.Web;
+    using System.Web.HttpContext;
+
+
+    @{
+        var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+
+        string layout = "";
+        if (controller == "Login")
+        {
+            layout = "~/Views/Shared/_PublicLayout.cshtml";
+        }
+        else
+        {
+            layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+        Layout = layout;
+    }
